@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>実施状況の更新（職員用）｜和光祭</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <p class="site-title">実施状況の更新 <small>和光祭・職員用ページ</small></p>
+    <nav class="header-nav" aria-label="ナビゲーション">
+      <ul><li><a href="index.html">公開ページを見る</a></li></ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ===== パスコード入力（未認証時に表示） ===== -->
+<div class="admin-wrap" id="lock-screen">
+  <section class="admin-card" id="lock-section">
+    <h2 class="section-title" style="font-size:1.15rem;">職員用ページ</h2>
+    <p class="section-lead" style="margin-bottom:18px;">実施状況を更新するには、4桁のパスコードを入力してください。</p>
+
+    <form id="lock-form" novalidate>
+      <div class="form-row">
+        <label for="passcode-input">パスコード（4桁の数字）</label>
+        <input type="password" id="passcode-input" name="passcode"
+               inputmode="numeric" autocomplete="off" maxlength="4"
+               pattern="[0-9]*" placeholder="••••"
+               class="passcode-field" required>
+      </div>
+      <div class="form-row" style="margin-bottom:8px;">
+        <label style="font-weight:400;font-size:.84rem;color:#6b7a7d;">
+          <input type="checkbox" id="remember-check" style="width:auto;margin-right:6px;">
+          この端末では次回から入力を省略する
+        </label>
+      </div>
+      <div class="status-actions" style="justify-content:flex-start;">
+        <button type="submit" class="btn" id="unlock-btn">ロックを解除する</button>
+        <a class="btn btn-outline" href="index.html">公開ページへ戻る</a>
+      </div>
+      <p class="admin-message" id="lock-message" role="status"></p>
+    </form>
+  </section>
+
+  <p style="text-align:center;font-size:.8rem;color:#6b7a7d;">
+    パスコードが分からない場合は、和光祭実行委員会までお問い合わせください。
+  </p>
+</div>
+
+<main class="admin-wrap" id="admin-main" hidden>
+
+  <section class="admin-card" id="current-section">
+    <h2 class="section-title" style="font-size:1.15rem;">いま公開されている内容</h2>
+    <article class="status-card is-before" id="status-card" style="box-shadow:none;">
+      <div class="status-card-head">
+        <h3 id="status-card-title" style="margin:0;font-size:.95rem;">現在の表示</h3>
+        <p class="status-updated" id="status-updated">読み込み中…</p>
+      </div>
+      <div class="status-card-body" style="padding:18px 16px;">
+        <p class="status-signal" id="status-signal">
+          <span class="dot" aria-hidden="true"></span>
+          <span id="status-label">取得中</span>
+        </p>
+        <h4 class="status-headline" id="status-headline" style="font-size:1.3rem;">読み込み中です</h4>
+        <div class="status-detail" id="status-detail"></div>
+        <p class="status-meta" id="status-meta"></p>
+      </div>
+    </article>
+    <div class="status-actions">
+      <button type="button" class="btn btn-outline" id="reload-status-btn">再読み込み</button>
+    </div>
+  </section>
+
+  <!-- GitHub運用（status.txt）時に表示される案内 -->
+  <section class="admin-card" id="file-section" hidden>
+    <h2 class="section-title" style="font-size:1.15rem;">実施状況を更新する</h2>
+    <p class="section-lead" style="margin-bottom:18px;">
+      このサイトは <strong>status.txt</strong> というファイルから実施状況を読み取っています。<br>
+      下のボタンからGitHubを開き、<strong>1行目の「区分:」の右側を書き換える</strong>と公開ページに反映されます。
+    </p>
+
+    <div class="status-actions" style="justify-content:flex-start;margin-bottom:12px;">
+      <a class="btn" id="open-github-btn" href="https://github.com/" target="_blank" rel="noopener">GitHubで status.txt を編集する</a>
+      <button type="button" class="btn btn-outline" id="file-reload-btn">反映を確認する</button>
+    </div>
+
+    <p class="access-note" id="github-url-hint" style="margin-bottom:18px;font-size:.84rem;" hidden>
+      <strong>ワンタップで開けるようにするには：</strong>
+      <code>js/config.js</code> の <code>GITHUB_EDIT_URL</code> に、ご自身のリポジトリのURLを
+      1行書き入れてください（形式：<code>https://github.com/ユーザー名/リポジトリ名/edit/main/status.txt</code>）。
+      未設定でもサイトは正常に動きます。
+    </p>
+
+    <h3 style="font-size:.95rem;color:#2f9b90;margin:0 0 8px;">「区分:」に書く言葉</h3>
+    <ul class="sheet-word-list">
+      <li><code>通常開催</code><span>予定どおりすべて実施</span></li>
+      <li><code>ステージ中止</code><span>ステージのみ中止・飲食販売は開催</span></li>
+      <li><code>全体中止</code><span>警報発令などですべて中止</span></li>
+      <li><code>開催前</code><span>当日を迎える前の表示</span></li>
+      <li><code>終了</code><span>閉幕後の表示</span></li>
+    </ul>
+
+    <h3 style="font-size:.95rem;color:#2f9b90;margin:18px 0 8px;">GitHubでの操作手順</h3>
+    <ol class="step-list">
+      <li>上のボタンを押してGitHubを開く（ログインが必要です）</li>
+      <li>1行目の <code>区分: 開催前</code> の「開催前」を書き換える</li>
+      <li>右上の緑のボタン <strong>Commit changes</strong> を押す</li>
+      <li>もう一度 <strong>Commit changes</strong> を押して確定</li>
+      <li>1〜2分待ってから「反映を確認する」を押す</li>
+    </ol>
+    <p class="form-hint">
+      見出しと本文を空欄にしておけば、区分に合った文章が自動で表示されます。<br>
+      <code>#</code> で始まる行はメモ扱いです。消さずに残してください。
+    </p>
+  </section>
+
+  <!-- スプレッドシート運用時に表示される案内 -->
+  <section class="admin-card" id="sheet-section" hidden>
+    <h2 class="section-title" style="font-size:1.15rem;">実施状況を更新する</h2>
+    <p class="section-lead" style="margin-bottom:18px;">
+      このサイトは<strong>Googleスプレッドシート</strong>から実施状況を読み取っています。<br>
+      下のボタンからシートを開き、<strong>「区分」のセルを書き換える</strong>と公開ページに反映されます。
+    </p>
+
+    <div class="status-actions" style="justify-content:flex-start;margin-bottom:18px;">
+      <a class="btn" id="open-sheet-btn" href="#" target="_blank" rel="noopener">スプレッドシートを開いて更新する</a>
+      <button type="button" class="btn btn-outline" id="sheet-reload-btn">反映を確認する</button>
+    </div>
+
+    <h3 style="font-size:.95rem;color:#2f9b90;margin:0 0 8px;">「区分」に書く言葉</h3>
+    <ul class="sheet-word-list">
+      <li><code>通常開催</code><span>予定どおりすべて実施</span></li>
+      <li><code>ステージ中止</code><span>ステージのみ中止・飲食販売は開催</span></li>
+      <li><code>全体中止</code><span>警報発令などですべて中止</span></li>
+      <li><code>開催前</code><span>当日を迎える前の表示</span></li>
+      <li><code>終了</code><span>閉幕後の表示</span></li>
+    </ul>
+    <p class="form-hint">見出しと本文を空欄にしておけば、区分に合った文章が自動で表示されます。</p>
+  </section>
+
+  <section class="admin-card" id="update-section">
+    <h2 class="section-title" style="font-size:1.15rem;">実施状況を更新する</h2>
+    <p class="section-lead" style="margin-bottom:18px;">下のボタンで定型文を呼び出し、必要に応じて文章を直してから「この内容で公開する」を押してください。</p>
+
+    <div class="form-row">
+      <label for="preset-area">かんたん入力（定型文）</label>
+      <div class="preset-buttons" id="preset-area">
+        <button type="button" data-preset="open">○ 通常開催</button>
+        <button type="button" data-preset="stage_cancel">△ ステージ中止・飲食のみ</button>
+        <button type="button" data-preset="cancel">× 警報で全体中止</button>
+        <button type="button" data-preset="before">準 開催前・準備中</button>
+        <button type="button" data-preset="ended">終 終了しました</button>
+      </div>
+    </div>
+
+    <form id="status-form" novalidate>
+      <div class="form-row">
+        <label for="status-code-select">実施状況の区分 <span aria-hidden="true">＊</span></label>
+        <select id="status-code-select" name="status_code" required>
+          <option value="before">開催前・準備中</option>
+          <option value="open">通常開催</option>
+          <option value="stage_cancel">ステージイベント中止（飲食販売のみ開催）</option>
+          <option value="cancel">全体中止（警報発令など）</option>
+          <option value="ended">終了しました</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="headline-input">見出し（大きく表示されます） <span aria-hidden="true">＊</span></label>
+        <input type="text" id="headline-input" name="headline" maxlength="60" required
+               placeholder="例：ステージイベントは中止／飲食販売は開催します">
+        <p class="form-hint">30文字程度までが読みやすいです。</p>
+      </div>
+
+      <div class="form-row">
+        <label for="detail-input">来場者へのご案内本文</label>
+        <textarea id="detail-input" name="detail" maxlength="800"
+                  placeholder="例：雨天のため屋外ステージのプログラムは中止いたします。飲食販売・こどもブースは予定どおり実施します。"></textarea>
+        <p class="form-hint">改行するとそのまま段落として表示されます。</p>
+      </div>
+
+      <div class="form-row">
+        <label for="updated-by-input">更新担当者・発表者名</label>
+        <input type="text" id="updated-by-input" name="updated_by" maxlength="40"
+               value="和光祭実行委員会" placeholder="例：和光祭実行委員会">
+      </div>
+
+      <div class="status-actions" style="justify-content:flex-start;">
+        <button type="submit" class="btn" id="submit-btn">この内容で公開する</button>
+        <button type="reset" class="btn btn-outline" id="reset-btn">入力をクリア</button>
+      </div>
+
+      <p class="admin-message" id="admin-message" role="status"></p>
+    </form>
+  </section>
+
+  <section class="admin-card" id="history-section">
+    <h2 class="section-title" style="font-size:1.15rem;">更新履歴</h2>
+    <ul class="history-list" id="history-list">
+      <li>読み込み中…</li>
+    </ul>
+  </section>
+
+  <div class="status-actions" style="margin-bottom:14px;">
+    <button type="button" class="btn btn-outline" id="lock-again-btn">ロックする（ログアウト）</button>
+  </div>
+
+  <p style="text-align:center;font-size:.8rem;color:#6b7a7d;">
+    このページは職員用の簡易更新画面です。パスコードとURLの取り扱いにご注意ください。
+  </p>
+
+</main>
+
+<script src="js/config.js"></script>
+<script src="js/status-source.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

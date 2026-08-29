@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>第12回 和光祭（わこうさい）｜社会福祉法人 南山城学園</title>
+<meta name="description" content="社会福祉法人 南山城学園「和光祭」公式ページ。開催当日の実施状況（通常開催／ステージイベント中止／全体中止）を随時お知らせします。">
+<meta property="og:title" content="第12回 和光祭｜社会福祉法人 南山城学園">
+<meta property="og:description" content="当日の開催状況をリアルタイムでお知らせします。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="has-sticky">
+
+<a class="skip-link" href="#status-section">開催状況の案内へ移動</a>
+
+<header class="site-header" id="site-header">
+  <div class="container header-inner">
+    <p class="site-title">
+      和光祭 <small>社会福祉法人 南山城学園</small>
+    </p>
+    <nav class="header-nav" id="header-nav" aria-label="ページ内リンク">
+      <ul>
+        <li><a href="#status-section">開催状況</a></li>
+        <li><a href="#stage-section">ステージ</a></li>
+        <li><a href="#booth-section">出店・体験</a></li>
+        <li><a href="#access-section">アクセス</a></li>
+        <li><a href="#qr-section">QRコード</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ===== ヒーロー ===== -->
+  <section class="hero" id="hero-section">
+    <div class="container">
+      <div class="hero-badges">
+        <span class="badge">入場無料</span>
+        <span class="badge badge-pink">大人気！</span>
+        <span class="badge badge-yellow">キッチンカー登場</span>
+        <span class="badge badge-blue">小雨決行</span>
+      </div>
+      <p class="hero-lead">第 12 回</p>
+      <h1 class="hero-title">和光祭</h1>
+      <p class="hero-title-en">- わこうさい -</p>
+
+      <div class="hero-datebox">
+        <p class="hero-date">
+          <span class="year">2026年</span>
+          10月3日<span class="dow">土</span>
+        </p>
+        <p class="hero-time">11:00 〜 15:30</p>
+        <p class="hero-place">会場：社会福祉法人 南山城学園 醍醐和光（京都市伏見区日野西川頬4-7）</p>
+      </div>
+
+      <figure class="hero-flyer">
+        <img src="images/wakousai-flyer.jpg" alt="昨年度（第11回）和光祭のチラシ。ステージイベントや飲食出店、こどもブースの案内が掲載されている">
+        <figcaption>※画像は昨年度（第11回）のチラシです</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===== 開催状況（メイン機能） ===== -->
+  <section class="status-section" id="status-section">
+    <div class="container">
+      <h2 class="section-title">当日の開催状況</h2>
+      <p class="section-lead">天候・警報の状況により内容を変更する場合があります。最新情報はこの欄でお知らせします。</p>
+
+      <article class="status-card is-before" id="status-card" aria-live="polite" aria-atomic="true">
+        <div class="status-card-head">
+          <h2 id="status-card-title">和光祭 実施状況</h2>
+          <p class="status-updated" id="status-updated">読み込み中…</p>
+        </div>
+        <div class="status-card-body">
+          <p class="status-signal" id="status-signal">
+            <span class="dot" aria-hidden="true"></span>
+            <span id="status-label">情報を取得しています</span>
+          </p>
+          <h3 class="status-headline" id="status-headline">読み込み中です</h3>
+          <div class="status-detail" id="status-detail">
+            <p>最新の開催状況を取得しています。しばらくお待ちください。</p>
+          </div>
+          <p class="status-meta" id="status-meta"></p>
+          <div class="status-actions">
+            <button type="button" class="btn" id="reload-status-btn">最新の状況を再読み込み</button>
+            <a class="btn btn-outline" href="tel:0755752255">電話で問い合わせる</a>
+          </div>
+        </div>
+      </article>
+
+      <h3 class="section-title" style="font-size:1.1rem;margin-top:32px;">お知らせの区分</h3>
+      <ul class="status-legend">
+        <li>
+          <span class="legend-mark m-before" aria-hidden="true">準</span>
+          <span><span class="legend-title">開催前・準備中</span>当日を迎える前の平常時の表示です。</span>
+        </li>
+        <li>
+          <span class="legend-mark m-open" aria-hidden="true">○</span>
+          <span><span class="legend-title">通常開催</span>予定どおりすべてのプログラムを実施します。</span>
+        </li>
+        <li>
+          <span class="legend-mark m-stage" aria-hidden="true">△</span>
+          <span><span class="legend-title">ステージイベント中止</span>雨天のためステージのみ中止。飲食販売は開催します。</span>
+        </li>
+        <li>
+          <span class="legend-mark m-cancel" aria-hidden="true">×</span>
+          <span><span class="legend-title">全体中止</span>警報発令・荒天等により和光祭全体を中止します。</span>
+        </li>
+      </ul>
+      <p class="status-note">※ 判断は当日 <strong>午前8時30分</strong> を目安に行い、状況が変わり次第このページを更新します。開催中に気象警報が発令された場合は、途中で内容を変更・中止することがあります。</p>
+    </div>
+  </section>
+
+  <!-- ===== ステージ ===== -->
+  <section class="section section-alt" id="stage-section">
+    <div class="container">
+      <h2 class="section-title">ステージイベント</h2>
+      <p class="section-lead">屋外ステージで一日を通してにぎやかなプログラムをお届けします。</p>
+
+      <div class="timetable">
+        <div class="tt-item">
+          <p class="tt-time">11:30</p>
+          <div class="tt-body">
+            <h3>ダンスパフォーマンス</h3>
+            <p>チーム名「桃山学園」／「HAPPINESS」</p>
+          </div>
+        </div>
+        <div class="tt-item">
+          <p class="tt-time">12:30</p>
+          <div class="tt-body">
+            <h3>演奏</h3>
+            <p>楽団名「伏水吹奏楽団」</p>
+          </div>
+        </div>
+        <div class="tt-item">
+          <p class="tt-time">13:30</p>
+          <div class="tt-body">
+            <h3>よさこい演舞</h3>
+            <p>チーム名「柳葉魚（ししゃも）のざわめき」</p>
+          </div>
+        </div>
+        <div class="tt-item">
+          <p class="tt-time">14:30</p>
+          <div class="tt-body">
+            <h3>「本気で！応援する」チアリーディングパフォーマンス</h3>
+            <p>チーム名「Cheerful Peace」</p>
+          </div>
+        </div>
+        <div class="tt-item">
+          <p class="tt-time">15:00</p>
+          <div class="tt-body">
+            <h3>バンド演奏</h3>
+            <p>バンド名「UTANOMOMIJI」</p>
+          </div>
+        </div>
+        <div class="tt-item is-special">
+          <p class="tt-time">12:00<br>14:00</p>
+          <div class="tt-body">
+            <h3>スペシャルパフォーマンス／シャボン玉</h3>
+            <p>シャボン玉師 ツカちゃん</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="stage-caution">
+        <strong>雨天時のご案内：</strong>ステージイベントは屋外開催のため、雨天の場合は<strong>ステージのみ中止</strong>とし、飲食販売・こどもブースのみ実施する場合があります。実施状況は<a href="#status-section">「当日の開催状況」</a>でご確認ください。
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== 出店・体験 ===== -->
+  <section class="section" id="booth-section">
+    <div class="container">
+      <h2 class="section-title">飲食出店・体験＆販売</h2>
+      <p class="section-lead">キッチンカーや地域のお店、学園の事業所が出店します。</p>
+
+      <div class="card-grid">
+        <div class="info-card">
+          <h3>飲食出店情報</h3>
+          <ul>
+            <li>米小屋（もっちり生地の米粉クレープ）</li>
+            <li>イサ・パスティス（自慢のエッグタルト）</li>
+            <li>88/O（えいえいおー）おむすび・お茶・汁物</li>
+            <li>Community Cafe&amp;Deli hinolino（ヒノリーノ）無農薬レモンのレモネード</li>
+            <li>AiNA Organic Kitchen（アサイーアイスキャンディー／VEGAN）</li>
+            <li>晴天（はれのひ）素材にこだわったおはぎ</li>
+          </ul>
+          <ul class="tag-list">
+            <li>焼きそば</li>
+            <li>カレー</li>
+            <li>唐揚げ</li>
+            <li>コーヒー</li>
+            <li>焼き菓子</li>
+          </ul>
+        </div>
+
+        <div class="info-card c-blue">
+          <h3>地域のお店</h3>
+          <ul>
+            <li>地域コミュニティサロン ひだまり</li>
+            <li>カフェ ぷらんたん</li>
+            <li>南山城学園</li>
+          </ul>
+        </div>
+
+        <div class="info-card c-yellow">
+          <h3>体験＆販売コーナー</h3>
+          <ul>
+            <li>都スクリーン（カラフルマジックでオリジナル缶バッチ制作）</li>
+            <li>クローバー（型を作るアクセサリー体験／TUMUGIプロジェクト）</li>
+            <li>アサヒサンクリーン株式会社（足浴体験）</li>
+            <li>整体サロン Nalū（ドライヘッドスパ）</li>
+            <li>ちょこワクショップ（はちみつ・ソフトクリーム販売、野菜の販売）</li>
+            <li>めだかのお店 やまもと（メダカ・ハンドメイド雑貨の販売）</li>
+          </ul>
+        </div>
+
+        <div class="info-card c-pink">
+          <h3>kids ブース</h3>
+          <p>ワクワク楽しめる体験がたくさん！ガチャガチャ1回付き。</p>
+          <ul>
+            <li>入場料 100円（子ども1人につき）</li>
+            <li>アユの風船屋さん（バルーンアート）</li>
+            <li>迷路（ワクワクが待ってるよ）</li>
+          </ul>
+        </div>
+
+        <div class="info-card c-blue">
+          <h3>こども店長のお店</h3>
+          <ul class="tag-list">
+            <li>射的</li>
+            <li>くじ引き</li>
+            <li>コイン落とし</li>
+            <li>当て物</li>
+            <li>小物販売</li>
+            <li>手作り雑貨販売</li>
+          </ul>
+          <p style="margin-top:8px;font-size:.8rem;">※景品・料金がかかります</p>
+        </div>
+
+        <div class="info-card c-yellow">
+          <h3>その他のおたのしみ</h3>
+          <ul>
+            <li>11:00〜 醍醐中央図書館「絵本の読み聞かせ」</li>
+            <li>11:00〜12:00 消防車と写真撮影ができる！</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== アクセス ===== -->
+  <section class="section section-alt" id="access-section">
+    <div class="container">
+      <h2 class="section-title">会場・アクセス</h2>
+      <div class="access-box">
+        <div>
+          <dl class="dl-plain">
+            <dt>会場</dt>
+            <dd>社会福祉法人 南山城学園　醍醐和光</dd>
+            <dt>所在地</dt>
+            <dd>京都府京都市伏見区日野西川頬4-7</dd>
+            <dt>主催</dt>
+            <dd>社会福祉法人 南山城学園　醍醐和光</dd>
+            <dt>協力</dt>
+            <dd>Orange Heart（南村・竹内）</dd>
+            <dt>お問合わせ</dt>
+            <dd>和光祭実行委員会　<a href="tel:0755752255">075-575-2255</a></dd>
+          </dl>
+        </div>
+        <div>
+          <p class="access-note">
+            <strong>駐車場はございません。</strong>公共交通機関でお越しください。近隣への路上駐車はご遠慮いただきますようお願いいたします。
+          </p>
+          <p style="margin-top:12px;">
+            <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&amp;query=京都府京都市伏見区日野西川頬4-7" target="_blank" rel="noopener">Googleマップで開く</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== QRコード ===== -->
+  <section class="qr-section" id="qr-section">
+    <div class="container">
+      <h2 class="section-title">QRコードでこのページへ</h2>
+      <p class="section-lead">チラシ・掲示物に貼り付けてご利用ください。スマートフォンのカメラで読み取ると、このページが開きます。</p>
+      <div class="qr-card">
+        <div id="qr-canvas-wrap" role="img" aria-label="このページのURLを示すQRコード"></div>
+        <p class="qr-url" id="qr-url"></p>
+        <div class="status-actions">
+          <button type="button" class="btn btn-yellow" id="qr-download-btn">QRコード画像を保存</button>
+          <button type="button" class="btn btn-outline" id="qr-copy-btn">URLをコピー</button>
+        </div>
+        <p class="form-hint" id="qr-message" style="margin-top:10px;"></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p style="margin:0;font-weight:700;">和光祭実行委員会</p>
+    <a class="footer-tel" href="tel:0755752255">075-575-2255</a>
+    <p class="footer-small">主催：社会福祉法人 南山城学園　醍醐和光<br>京都府京都市伏見区日野西川頬4-7</p>
+    <p class="footer-small">※写真はイメージです。※イベント内容は変更になる可能性がございます。ご了承ください。</p>
+    <p class="footer-small" style="margin-top:14px;"><a href="admin.html">実施状況の更新（職員用）</a></p>
+  </div>
+</footer>
+
+<!-- 追従バナー -->
+<div class="sticky-cta" id="sticky-cta">
+  <div class="sticky-cta-inner">
+    <p class="sticky-cta-text" id="sticky-cta-text">
+      開催状況を確認する
+      <span id="sticky-cta-sub">最新情報をチェック</span>
+    </p>
+    <a class="btn" href="#status-section">開催状況へ</a>
+  </div>
+</div>
+
+<script src="js/lib/qrcode.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/status-source.js"></script>
+<script src="js/status.js"></script>
+<script src="js/qr.js"></script>
+</body>
+</html>

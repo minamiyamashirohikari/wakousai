@@ -1,0 +1,17 @@
+{
+  "captured_at": "2026-08-29T08:45:00+09:00",
+  "source": "https://e61e21b1-a544-4200-8d70-ff3564089186.vip.gensparksite.com/tables/status_updates?limit=100&sort=created_at",
+  "data": [
+    {
+      "id": "init-2026-08-11",
+      "status_code": "before",
+      "headline": "現在、開催に向けて準備中です",
+      "detail": "当日の天候によりイベント内容が変更となる場合があります。\n最新の実施状況は当日の朝8時30分頃までにこのページでお知らせします。\nご来場前にぜひご確認ください。",
+      "updated_by": "和光祭実行委員会",
+      "published_at": "2026-08-11T09:00:00",
+      "created_at": "2026-08-11 23:21:09",
+      "updated_at": "2026-08-11 23:21:09"
+    }
+  ],
+  "total": 1
+}
