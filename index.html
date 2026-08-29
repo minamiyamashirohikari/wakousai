@@ -289,9 +289,11 @@
   <section class="qr-section" id="qr-section">
     <div class="container">
       <h2 class="section-title">QRコードでこのページへ</h2>
-      <p class="section-lead">チラシ・掲示物に貼り付けてご利用ください。スマートフォンのカメラで読み取ると、このページが開きます。</p>
+      <p class="section-lead">チラシ・掲示物に使う正式な固定QRコードです。QRコードと読み取り先URLは今後変更しません。</p>
       <div class="qr-card">
-        <div id="qr-canvas-wrap" role="img" aria-label="このページのURLを示すQRコード"></div>
+        <div id="qr-canvas-wrap">
+          <img src="images/minamiyamashiro-wakousai-qr.png" width="220" height="220" alt="和光祭の正式公開URLを示す固定QRコード">
+        </div>
         <p class="qr-url" id="qr-url"></p>
         <div class="status-actions">
           <button type="button" class="btn btn-yellow" id="qr-download-btn">QRコード画像を保存</button>
@@ -325,7 +327,6 @@
   </div>
 </div>
 
-<script src="js/lib/qrcode.min.js"></script>
 <script src="js/config.js"></script>
 <script src="js/status-source.js"></script>
 <script src="js/status.js"></script>

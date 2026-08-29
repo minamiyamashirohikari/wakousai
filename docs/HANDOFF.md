@@ -13,7 +13,7 @@
 
 ## 2. 現在の公開状態
 
-- 来場者向けLPはCloudflare Pagesで公開済みで、表示・チラシ画像・QRコード生成に問題なし。
+- 来場者向けLPはCloudflare Pagesで公開済みで、表示・チラシ画像・固定QRコードに問題なし。
 - Genspark公開環境では、開催状況をTable API / Cloudflare D1の`status_updates`から取得する。
 - 公開データは1件で、区分は`before`（開催前・準備中）。データの控えは`data/status_updates.snapshot.json`。
 - GitHubリポジトリ`minamiyamashirohikari/wakousai`を作成済み。
@@ -26,6 +26,7 @@
 - GitHubアカウント: `minamiyamashirohikari`
 - 正式公開URL: `https://minamiyamashiro-wakousai.pages.dev/`
 - QRコード表示ページ: `https://minamiyamashiro-wakousai.pages.dev/#qr-section`
+- 印刷物用QRコード: `images/minamiyamashiro-wakousai-qr.png`（変更禁止。詳細は`docs/QR-CODE-LOCK.md`）
 - `js/config.js`のGitHub編集URLは上記リポジトリ名で設定済み。
 
 今後、編集・公開・更新の作業報告では、毎回「公開URL」と「QRコード表示ページ」をセットで提示する。
@@ -38,7 +39,7 @@
 - `js/status.js`: 公開ページの開催状況カードと追従バナーを更新する。
 - `js/admin.js`: Genspark環境で履歴表示と新規ステータス投稿を行う。静的環境では編集先案内を表示する。
 - `js/auth.js`: 職員用画面の簡易ロック。
-- `js/qr.js`: `js/config.js`に設定した正式公開URLからQRコードを生成する。
+- `js/qr.js`: 印刷物用の固定QRコードPNGをそのまま表示・保存する。動的生成は行わない。
 - `status.txt`: GitHub / Cloudflare Pages運用時の開催状況データ。
 
 `js/config.js`の`MODE`は`auto`。自動判定は次のとおり。
@@ -53,11 +54,12 @@
 
 - 公開サイトの本文と現在の開催状況を確認。
 - 現行ファイル一式をローカルHTTPサーバーで読み込み、公開ページと`status.txt`の反映を確認。
-- QRコードのCanvas/PNG生成を確認。
+- 固定QRコードPNGの表示・ダウンロードを確認。
 - 職員用ページの読み込みとGitHub編集リンクを確認。
 - 全JavaScriptファイルに対して`node --check`を実行し、構文エラーなし。
 - ブラウザコンソールにJavaScriptエラーなし。
 - Cloudflare Pagesの本番デプロイ成功、GitHub連携、`main`ブランチ、自動デプロイ有効を確認。
+- Cloudflare Pagesのビルドで`scripts/verify-qr-lock.mjs`を実行し、固定QRコードの変更を公開前に検知する。
 - 本番URLで公開ページ、QRコード、チラシ画像、職員用画面を確認。
 
 ## 6. 必ず確認する事項
@@ -67,10 +69,11 @@
 3. **職員用ロックは簡易方式。** 4桁コードはブラウザ側JavaScriptで判定するため、強固な認証ではない。誤操作防止用と考える。
 4. **正式運用はCloudflare Pagesへ一本化する。** Genspark版は旧環境として扱い、QRコードや配布物にはCloudflare PagesのURLのみを使用する。
 5. **公開更新はGitHub経由。** ローカル変更を`main`へプッシュすると自動デプロイされる。開催状況だけを変える場合はGitHub上の`status.txt`を編集する。
+6. **印刷物用QRコードは永久固定。** `docs/QR-CODE-LOCK.md`に記載したURL・PNG・SHA-256を、年度更新を含む通常作業で変更しない。Cloudflare Pagesプロジェクトも改名・削除しない。
 
 ## 7. 次に進める順番
 
 1. 2026年の正式な開催資料とLP本文を突合して修正する。
 2. 来場者・職員の運用先をCloudflare Pagesの正式URLへ一本化する。
-3. 配布する最終URLでQRコードを保存し、印刷前に実機で読み取る。
+3. `images/minamiyamashiro-wakousai-qr.png`を印刷物に使用し、印刷前に実機で読み取る（再生成しない）。
 4. 開催前に「通常開催」「ステージ中止」「全体中止」「開催前」を切り替えるリハーサルを行う。

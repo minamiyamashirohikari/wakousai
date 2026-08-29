@@ -138,12 +138,13 @@
 - 「いま公開されている内容」を実際の公開ページと同じ見た目でプレビュー
 - **更新履歴**（最新10件）を一覧表示
 
-### ✅ QRコード生成機能
+### ✅ 印刷物用QRコード固定機能
 
-- ページ最下部の「QRコードでこのページへ」セクションで、`js/config.js`に設定した**正式公開URLのQRコードを自動生成**（南山城学園グリーンの配色）
-- 「QRコード画像を保存」ボタンで PNG（`minamiyamashiro-wakousai-qr.png`）としてダウンロード → チラシ・館内掲示物・回覧板に貼り付けてご利用いただけます
+- ページ最下部の「QRコードでこのページへ」セクションでは、印刷物用の固定PNG（`images/minamiyamashiro-wakousai-qr.png`）をそのまま表示します
+- 「QRコード画像を保存」ボタンでも同じ固定PNGをダウンロードします。動的な再生成は行いません
 - 「URLをコピー」ボタンでURLをクリップボードへコピー
-- QRライブラリはプロジェクト内に同梱（`js/lib/qrcode.min.js`）しているため、外部CDNが不調でも生成できます
+- 読み取り先URL・画像ファイル・SHA-256は`docs/QR-CODE-LOCK.md`に記録し、年度更新や通常編集では変更禁止としています
+- Cloudflare Pagesの公開前にも`scripts/verify-qr-lock.mjs`で固定値を検証し、差異があれば公開を止めます
 
 ### ✅ その他のコンテンツ
 
@@ -240,13 +241,14 @@ js/
   ├── status.js         公開ページでの状況表示
   ├── auth.js           職員用ページの4桁パスコード認証
   ├── admin.js          実施状況の更新フォーム・履歴
-  ├── qr.js             QRコード生成・保存
+  ├── qr.js             固定QRコード画像の表示・保存
   └── lib/
-      └── qrcode.min.js QRコード生成ライブラリ（同梱）
+      └── qrcode.min.js 旧生成ライブラリ（現在は読み込みなし）
 images/
   └── wakousai-flyer.jpg 昨年度（第11回）チラシ画像
   └── minamiyamashiro-wakousai-qr.png 正式公開URL用QRコード
 docs/
+  ├── QR-CODE-LOCK.md    印刷物用QRコードの固定値・変更禁止記録
   ├── GitHub移行手順.md  GitHub＋Cloudflare Pages への移行手順（推奨）
   └── 移行手順.md        スプレッドシート方式の移行手順
 ```

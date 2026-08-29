@@ -607,7 +607,12 @@ a { color: var(--green-dark); }
   border-radius: 12px;
 }
 
-#qr-canvas-wrap canvas { margin: 0 auto; }
+#qr-canvas-wrap img {
+  display: block;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto;
+}
 
 .qr-url {
   margin: 12px 0 0;

@@ -1,10 +1,15 @@
 /* =========================================================
-   このページのURLからQRコードを生成する
-   （チラシ・掲示物へ貼り付けて使えるよう保存も可能）
-   ライブラリ: js/lib/qrcode.min.js（qrcodejs / ローカル同梱）
+   印刷物用の正式QRコードを、そのまま表示・保存する
+   ---------------------------------------------------------
+   重要: QRコードと読み取り先URLは印刷物用の固定資産です。
+   URL・画像・ファイル名を変更したり、QRコードを再生成したり
+   しないでください。詳細: docs/QR-CODE-LOCK.md
    ========================================================= */
 (function () {
   'use strict';
+
+  var LOCKED_PUBLIC_URL = 'https://minamiyamashiro-wakousai.pages.dev/';
+  var LOCKED_QR_IMAGE = 'images/minamiyamashiro-wakousai-qr.png';
 
   var wrap = document.getElementById('qr-canvas-wrap');
   var urlText = document.getElementById('qr-url');
@@ -14,73 +19,41 @@
 
   if (!wrap) { return; }
 
-  // 正式URLが設定されていれば常にそのURLを使う。
-  // 未設定時だけ、ハッシュやクエリを除いた現在のページURLを使う。
-  var cfg = window.WAKOUSAI_CONFIG || {};
-  var configuredUrl = String(cfg.PUBLIC_URL || '').trim();
-  var pageUrl = configuredUrl || (location.origin + location.pathname);
-  if (urlText) { urlText.textContent = pageUrl; }
+  if (urlText) { urlText.textContent = LOCKED_PUBLIC_URL; }
+  wrap.title = LOCKED_PUBLIC_URL;
 
-  if (typeof QRCode === 'undefined') {
-    if (msg) { msg.textContent = 'QRコードの生成に失敗しました。ページを再読み込みしてください。'; }
+  var image = wrap.querySelector('img');
+  if (!image || image.getAttribute('src') !== LOCKED_QR_IMAGE) {
+    if (msg) { msg.textContent = '固定QRコード画像の設定を確認できませんでした。管理者へご連絡ください。'; }
     return;
   }
-
-  // QRコード生成（緑：南山城学園イメージカラー）
-  try {
-    new QRCode(wrap, {
-      text: pageUrl,
-      width: 220,
-      height: 220,
-      colorDark: '#2f9b90',
-      colorLight: '#ffffff',
-      correctLevel: QRCode.CorrectLevel.M
-    });
-  } catch (e) {
-    console.error(e);
-    if (msg) { msg.textContent = 'QRコードを生成できませんでした。'; }
-    return;
-  }
-
-  /** canvas / img いずれで描画されてもPNGデータを取り出す */
-  function getImageDataUrl() {
-    var canvas = wrap.querySelector('canvas');
-    if (canvas) {
-      try { return canvas.toDataURL('image/png'); } catch (e) { /* noop */ }
-    }
-    var img = wrap.querySelector('img');
-    if (img && img.src) { return img.src; }
-    return '';
-  }
+  image.addEventListener('error', function () {
+    if (msg) { msg.textContent = '固定QRコード画像を読み込めませんでした。管理者へご連絡ください。'; }
+  });
 
   if (dlBtn) {
     dlBtn.addEventListener('click', function () {
-      var data = getImageDataUrl();
-      if (!data) {
-        msg.textContent = 'QRコード画像を取得できませんでした。画像を長押しして保存してください。';
-        return;
-      }
       var a = document.createElement('a');
-      a.href = data;
+      a.href = LOCKED_QR_IMAGE;
       a.download = 'minamiyamashiro-wakousai-qr.png';
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-      msg.textContent = 'QRコード画像を保存しました（minamiyamashiro-wakousai-qr.png）。';
+      if (msg) { msg.textContent = '印刷物用の固定QRコード画像を保存しました。'; }
     });
   }
 
   if (copyBtn) {
     copyBtn.addEventListener('click', function () {
       if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(pageUrl).then(function () {
-          msg.textContent = 'URLをコピーしました。';
+        navigator.clipboard.writeText(LOCKED_PUBLIC_URL).then(function () {
+          if (msg) { msg.textContent = '固定URLをコピーしました。'; }
         }).catch(function () {
-          msg.textContent = 'コピーできませんでした。URLを手動で選択してください。';
+          if (msg) { msg.textContent = 'コピーできませんでした。表示中のURLを選択してコピーしてください。'; }
         });
-      } else {
-        msg.textContent = 'このブラウザでは自動コピーに対応していません。URLを手動で選択してください。';
+        return;
       }
+      if (msg) { msg.textContent = '表示中のURLを選択してコピーしてください。'; }
     });
   }
 })();

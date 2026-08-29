@@ -25,7 +25,8 @@ window.WAKOUSAI_CONFIG = {
   MODE: 'auto',
 
   /* 来場者へ案内する正式URL。
-     ローカル確認時でも、このURLのQRコードを生成します。 */
+     印刷物の固定QRコードが指しているため、絶対に変更しないでください。
+     詳細: docs/QR-CODE-LOCK.md */
   PUBLIC_URL: 'https://minamiyamashiro-wakousai.pages.dev/',
 
   /* ======================================================
