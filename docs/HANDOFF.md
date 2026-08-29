@@ -59,7 +59,7 @@
 - 全JavaScriptファイルに対して`node --check`を実行し、構文エラーなし。
 - ブラウザコンソールにJavaScriptエラーなし。
 - Cloudflare Pagesの本番デプロイ成功、GitHub連携、`main`ブランチ、自動デプロイ有効を確認。
-- Cloudflare Pagesのビルドで`scripts/verify-qr-lock.mjs`を実行し、固定QRコードの変更を公開前に検知する。
+- GitHub Actionsで`scripts/verify-qr-lock.mjs`を自動実行し、固定QRコードの変更を検知する。
 - 本番URLで公開ページ、QRコード、チラシ画像、職員用画面を確認。
 
 ## 6. 必ず確認する事項

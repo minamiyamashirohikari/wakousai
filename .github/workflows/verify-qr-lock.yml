@@ -1,0 +1,18 @@
+name: Verify printed QR lock
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify-qr-lock:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Verify locked QR image and URL
+        run: node scripts/verify-qr-lock.mjs

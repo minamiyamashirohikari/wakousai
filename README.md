@@ -144,7 +144,7 @@
 - 「QRコード画像を保存」ボタンでも同じ固定PNGをダウンロードします。動的な再生成は行いません
 - 「URLをコピー」ボタンでURLをクリップボードへコピー
 - 読み取り先URL・画像ファイル・SHA-256は`docs/QR-CODE-LOCK.md`に記録し、年度更新や通常編集では変更禁止としています
-- Cloudflare Pagesの公開前にも`scripts/verify-qr-lock.mjs`で固定値を検証し、差異があれば公開を止めます
+- GitHub Actionsでも`scripts/verify-qr-lock.mjs`を自動実行し、固定値の差異を検知します
 
 ### ✅ その他のコンテンツ
 
