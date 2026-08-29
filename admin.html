@@ -83,7 +83,7 @@
     <h2 class="section-title" style="font-size:1.15rem;">実施状況を更新する</h2>
     <p class="section-lead" style="margin-bottom:18px;">
       このサイトは <strong>status.txt</strong> というファイルから実施状況を読み取っています。<br>
-      下のボタンからGitHubを開き、<strong>1行目の「区分:」の右側を書き換える</strong>と公開ページに反映されます。
+      下のボタンからGitHubを開き、<strong>「区分:」と「更新日時:」の右側を書き換える</strong>と公開ページに反映されます。
     </p>
 
     <div class="status-actions" style="justify-content:flex-start;margin-bottom:12px;">
@@ -98,7 +98,7 @@
       未設定でもサイトは正常に動きます。
     </p>
 
-    <h3 style="font-size:.95rem;color:#2f9b90;margin:0 0 8px;">「区分:」に書く言葉</h3>
+    <h3 style="font-size:.95rem;color:var(--green-dark);margin:0 0 8px;">「区分:」に書く言葉</h3>
     <ul class="sheet-word-list">
       <li><code>通常開催</code><span>予定どおりすべて実施</span></li>
       <li><code>ステージ中止</code><span>ステージのみ中止・飲食販売は開催</span></li>
@@ -107,10 +107,11 @@
       <li><code>終了</code><span>閉幕後の表示</span></li>
     </ul>
 
-    <h3 style="font-size:.95rem;color:#2f9b90;margin:18px 0 8px;">GitHubでの操作手順</h3>
+    <h3 style="font-size:.95rem;color:var(--green-dark);margin:18px 0 8px;">GitHubでの操作手順</h3>
     <ol class="step-list">
       <li>上のボタンを押してGitHubを開く（ログインが必要です）</li>
-      <li>1行目の <code>区分: 開催前</code> の「開催前」を書き換える</li>
+      <li><code>区分: 開催前</code> の「開催前」を書き換える</li>
+      <li><code>更新日時:</code> に現在の日時を入力する（例：<code>2026/10/3 8:30</code>）</li>
       <li>右上の緑のボタン <strong>Commit changes</strong> を押す</li>
       <li>もう一度 <strong>Commit changes</strong> を押して確定</li>
       <li>1〜2分待ってから「反映を確認する」を押す</li>
