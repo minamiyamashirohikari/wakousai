@@ -1,35 +1,36 @@
 # 和光祭 ランディングページ（社会福祉法人 南山城学園 醍醐和光）
 
-## 🌐 公開URL（Gensparkで公開済み）
+## 🌐 公開URL（Cloudflare Pagesで公開済み）
 
 | 用途 | URL |
 | --- | --- |
-| **公開ページ（来場者向け／QRコードの行き先）** | https://e61e21b1-a544-4200-8d70-ff3564089186.vip.gensparksite.com |
-| **職員用 実施状況 更新画面**（パスコード `1456`） | https://e61e21b1-a544-4200-8d70-ff3564089186.vip.gensparksite.com/admin.html |
+| **公開ページ（来場者向け／QRコードの行き先）** | https://minamiyamashiro-wakousai.pages.dev/ |
+| **QRコード表示ページ** | https://minamiyamashiro-wakousai.pages.dev/#qr-section |
+| **職員用 実施状況 更新画面**（パスコード `1456`） | https://minamiyamashiro-wakousai.pages.dev/admin |
 
 ※ QRコードは上記の公開URLを開き、ページ最下部の「QRコード画像を保存」ボタンから取得してください。
 
 > ローカル引き継ぎ状況と注意点は [`docs/HANDOFF.md`](docs/HANDOFF.md) を参照してください。
 
-### 📘 移行予定のURL（名前は確定、移行作業は未完了）
+### 📘 GitHub・Cloudflare Pages構成
 
 | 項目 | 確定した名前 / URL |
 | --- | --- |
-| GitHub リポジトリ（作成予定） | `minamiyamashirohikari/wakousai` |
+| GitHub リポジトリ | https://github.com/minamiyamashirohikari/wakousai |
 | Cloudflare Pagesプロジェクト名 | `minamiyamashiro-wakousai` |
-| 来場者向け公開URL（予定） | **https://minamiyamashiro-wakousai.pages.dev** |
-| QRコード表示ページ（予定） | https://minamiyamashiro-wakousai.pages.dev/#qr-section |
-| 職員用ページ（予定） | https://minamiyamashiro-wakousai.pages.dev/admin.html |
-| 職員用 編集画面（予定） | https://github.com/minamiyamashirohikari/wakousai/edit/main/status.txt |
+| 来場者向け公開URL | **https://minamiyamashiro-wakousai.pages.dev/** |
+| QRコード表示ページ | https://minamiyamashiro-wakousai.pages.dev/#qr-section |
+| 職員用ページ | https://minamiyamashiro-wakousai.pages.dev/admin |
+| 職員用 編集画面 | https://github.com/minamiyamashirohikari/wakousai/edit/main/status.txt |
 
-移行後の来場者向けURLを記録したQRコード：
+正式な来場者向けURLを記録したQRコード：
 
 ![minamiyamashiro-wakousai 公開URLのQRコード](images/minamiyamashiro-wakousai-qr.png)
 
 **→ 手順書：[`docs/GitHub移行手順.md`](docs/GitHub移行手順.md) （GitHub連携・推奨）**
 **→ 代替案：[`docs/移行手順.md`](docs/移行手順.md) （スプレッドシート方式）**
 
-Cloudflare Pages へ移すと `gensparksite` の文字が入らないURLになります。2026-08-29確認時点では、上記GitHubリポジトリとPagesサイトはまだ作成されていません。
+2026-08-29にGitHubリポジトリとCloudflare Pagesの接続・初回デプロイが完了しました。`main`ブランチへ変更をプッシュするとCloudflare Pagesへ自動デプロイされます。
 上記の名前は `js/config.js` に記入済みのため、**設定ファイルを書き換える必要はありません。**
 サイトの置き場所（ホスト名）を見て、開催状況の読み取り先が自動で切り替わります。
 
@@ -244,17 +245,19 @@ js/
       └── qrcode.min.js QRコード生成ライブラリ（同梱）
 images/
   └── wakousai-flyer.jpg 昨年度（第11回）チラシ画像
-  └── minamiyamashiro-wakousai-qr.png 移行後の公開URL用QRコード
+  └── minamiyamashiro-wakousai-qr.png 正式公開URL用QRコード
 docs/
   ├── GitHub移行手順.md  GitHub＋Cloudflare Pages への移行手順（推奨）
   └── 移行手順.md        スプレッドシート方式の移行手順
 ```
 
-## 10. 現在の公開情報（Genspark）
+## 10. 現在の公開情報（Cloudflare Pages）
 
-現在は Genspark のURLで公開中です。移行後は上記の Cloudflare Pages URLへ切り替えます。
+現在はGitHubの`main`ブランチからCloudflare Pagesへ自動公開されます。
 
-- **公開URL**：https://e61e21b1-a544-4200-8d70-ff3564089186.vip.gensparksite.com
-- **Genspark管理ID**：`e61e21b1-a544-4200-8d70-ff3564089186`
+- **公開URL**：https://minamiyamashiro-wakousai.pages.dev/
+- **QRコード表示ページ**：https://minamiyamashiro-wakousai.pages.dev/#qr-section
+- **GitHub**：https://github.com/minamiyamashirohikari/wakousai
+- **Cloudflare Pagesプロジェクト**：`minamiyamashiro-wakousai`
 
-内容を修正した際は、再度デプロイすることで公開サイトに反映されます（同じURLのまま更新され、登録済みの実施状況データも保持されます）。
+内容を修正してGitHubの`main`ブランチへプッシュすると、同じ公開URLへ自動的に反映されます。
