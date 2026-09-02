@@ -594,6 +594,51 @@ button:focus-visible {
 
 .access-note strong { color: #c94267; }
 
+.access-guides {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+
+.venue-map-card {
+  padding: 18px;
+  border-radius: 16px;
+  background: var(--blue-pale);
+  border: 2px solid var(--blue);
+}
+
+.venue-map-kicker {
+  margin: 0 0 4px;
+  font-size: .78rem;
+  font-weight: 900;
+  letter-spacing: .08em;
+  color: var(--blue-dark);
+}
+
+.venue-map-card h3 {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  color: var(--blue-dark);
+}
+
+.venue-map-card p:not(.venue-map-kicker) {
+  margin: 0;
+  font-size: .84rem;
+  color: var(--ink-soft);
+}
+
+.venue-map-card .btn {
+  margin-top: 14px;
+  text-align: center;
+}
+
+.access-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 0;
+}
+
 .dl-plain { margin: 0; font-size: .9rem; }
 .dl-plain dt { font-weight: 700; color: var(--green-dark); margin-top: 10px; }
 .dl-plain dd { margin: 2px 0 0; }
@@ -910,6 +955,8 @@ button:focus-visible {
   .has-sticky { padding-bottom: 62px; }
   .status-card-body { padding: 20px 14px 22px; }
   .container { padding: 0 14px; }
+  .venue-map-card .btn,
+  .access-actions .btn { width: 100%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
