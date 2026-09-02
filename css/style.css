@@ -601,11 +601,22 @@ button:focus-visible {
 }
 
 .venue-map-card {
-  padding: 18px;
-  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 22px 24px;
+  border-radius: var(--radius);
   background: var(--blue-pale);
   border: 2px solid var(--blue);
+  box-shadow: var(--shadow);
 }
+
+.venue-map-section { padding: 24px 0 34px; }
+
+.venue-map-copy { min-width: 0; }
 
 .venue-map-kicker {
   margin: 0 0 4px;
@@ -615,9 +626,9 @@ button:focus-visible {
   color: var(--blue-dark);
 }
 
-.venue-map-card h3 {
+.venue-map-card h2 {
   margin: 0 0 6px;
-  font-size: 1rem;
+  font-size: 1.35rem;
   color: var(--blue-dark);
 }
 
@@ -627,8 +638,10 @@ button:focus-visible {
   color: var(--ink-soft);
 }
 
+.venue-map-card p strong { color: var(--blue-dark); }
+
 .venue-map-card .btn {
-  margin-top: 14px;
+  flex: 0 0 auto;
   text-align: center;
 }
 
@@ -955,8 +968,13 @@ button:focus-visible {
   .has-sticky { padding-bottom: 62px; }
   .status-card-body { padding: 20px 14px 22px; }
   .container { padding: 0 14px; }
+  .venue-map-card {
+    display: block;
+    padding: 18px;
+  }
   .venue-map-card .btn,
   .access-actions .btn { width: 100%; }
+  .venue-map-card .btn { margin-top: 14px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
