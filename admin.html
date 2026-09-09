@@ -101,7 +101,7 @@
     <h3 style="font-size:.95rem;color:var(--green-dark);margin:0 0 8px;">「区分:」に書く言葉</h3>
     <ul class="sheet-word-list">
       <li><code>通常開催</code><span>予定どおりすべて実施</span></li>
-      <li><code>ステージ中止</code><span>ステージのみ中止・飲食販売は開催</span></li>
+      <li><code>ステージ中止</code><span>雨天時は飲食ブースのみ開催</span></li>
       <li><code>全体中止</code><span>警報発令などですべて中止</span></li>
       <li><code>開催前</code><span>当日を迎える前の表示</span></li>
       <li><code>終了</code><span>閉幕後の表示</span></li>
@@ -138,7 +138,7 @@
     <h3 style="font-size:.95rem;color:#2f9b90;margin:0 0 8px;">「区分」に書く言葉</h3>
     <ul class="sheet-word-list">
       <li><code>通常開催</code><span>予定どおりすべて実施</span></li>
-      <li><code>ステージ中止</code><span>ステージのみ中止・飲食販売は開催</span></li>
+      <li><code>ステージ中止</code><span>雨天時は飲食ブースのみ開催</span></li>
       <li><code>全体中止</code><span>警報発令などですべて中止</span></li>
       <li><code>開催前</code><span>当日を迎える前の表示</span></li>
       <li><code>終了</code><span>閉幕後の表示</span></li>
@@ -154,7 +154,7 @@
       <label for="preset-area">かんたん入力（定型文）</label>
       <div class="preset-buttons" id="preset-area">
         <button type="button" data-preset="open">○ 通常開催</button>
-        <button type="button" data-preset="stage_cancel">△ ステージ中止・飲食のみ</button>
+        <button type="button" data-preset="stage_cancel">△ 雨天・飲食のみ</button>
         <button type="button" data-preset="cancel">× 警報で全体中止</button>
         <button type="button" data-preset="before">準 開催前・準備中</button>
         <button type="button" data-preset="ended">終 終了しました</button>
@@ -167,7 +167,7 @@
         <select id="status-code-select" name="status_code" required>
           <option value="before">開催前・準備中</option>
           <option value="open">通常開催</option>
-          <option value="stage_cancel">ステージイベント中止（飲食販売のみ開催）</option>
+          <option value="stage_cancel">雨天時（飲食ブースのみ開催）</option>
           <option value="cancel">全体中止（警報発令など）</option>
           <option value="ended">終了しました</option>
         </select>
@@ -176,14 +176,14 @@
       <div class="form-row">
         <label for="headline-input">見出し（大きく表示されます） <span aria-hidden="true">＊</span></label>
         <input type="text" id="headline-input" name="headline" maxlength="60" required
-               placeholder="例：ステージイベントは中止／飲食販売は開催します">
+               placeholder="例：雨天のため飲食ブースのみ開催します">
         <p class="form-hint">30文字程度までが読みやすいです。</p>
       </div>
 
       <div class="form-row">
         <label for="detail-input">来場者へのご案内本文</label>
         <textarea id="detail-input" name="detail" maxlength="800"
-                  placeholder="例：雨天のため屋外ステージのプログラムは中止いたします。飲食販売・こどもブースは予定どおり実施します。"></textarea>
+                  placeholder="例：雨天のため飲食ブースのみ実施し、ステージイベントは中止いたします。"></textarea>
         <p class="form-hint">改行するとそのまま段落として表示されます。</p>
       </div>
 
