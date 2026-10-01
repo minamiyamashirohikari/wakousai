@@ -150,7 +150,7 @@
 ### ✅ その他のコンテンツ
 
 - ヒーロー（第11回の開催日時・会場・入場無料などのバッジ・今年度チラシ表裏）
-- ステージイベントの直前に、昨年度参考版の会場マップPDFを開く案内
+- ステージイベントの直前に、今年度（第11回・2026年度）の会場マップPDFを開く案内
 - ステージイベントのタイムテーブル（雨天時の扱いを注記）
 - 今年度のステージ出演者、飲食ブース、キッチンカー、物販・体験ブース、多目的ホールイベント、ミキサー車企画
 - 会場・アクセス（駐車場なしの注意、公共交通案内、Googleマップ）
@@ -168,7 +168,8 @@
 | `index.html#access-section` | 会場・アクセス |
 | `assets/flyer/wakousai-flyer-front.pdf` | 今年度チラシ表面（PDF） |
 | `assets/flyer/wakousai-flyer-back.pdf` | 今年度チラシ裏面（PDF） |
-| `assets/maps/wakousai-venue-map.pdf` | 会場マップ（現在は昨年度参考版。今年度版も同じパスへ差し替え） |
+| `assets/maps/wakousai-venue-map.pdf` | 今年度（第11回・2026年度）の会場マップ。2026年10月1日受領画像からPDF化し、既存パスを維持 |
+| `assets/maps/wakousai-venue-map.png` | 受領した今年度会場マップの原画像（無加工） |
 | `index.html#qr-section` | 固定QRコード表示セクション |
 | `admin.html` | 職員用 実施状況 更新画面（4桁パスコード `1456` で保護／`noindex` 指定） |
 
